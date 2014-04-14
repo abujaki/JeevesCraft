@@ -69,12 +69,48 @@ public class RecipeBook {
 			logger.info("Added recipe: Nametag");
 		}
 		
-		//RESERVED FOR PACKED ICE RECIPE
+		//Ice and Packed Ice recipe
 		if(config.getBoolean("Recipe.Ice")){
+			ShapelessRecipe Ice = new ShapelessRecipe(new ItemStack(Material.ICE));
+			Ice.addIngredient(9, Material.SNOW_BALL);
+			server.addRecipe(Ice);
+			logger.info("Added recipe: Ice");
 			ShapelessRecipe PackedIce = new ShapelessRecipe(new ItemStack(Material.PACKED_ICE));
 			PackedIce.addIngredient(4, Material.SNOW_BLOCK);
 			server.addRecipe(PackedIce);
 			logger.info("Added recipe: Packed Ice");
+		}
+		
+		//Miscellanious recipes
+		if(config.getBoolean("Recipe.Misc")){
+			ShapedRecipe mycellium = new ShapedRecipe(new ItemStack(Material.MYCEL));
+			mycellium.shape("MWM","mDm","BBB");
+			mycellium.setIngredient('M', Material.BROWN_MUSHROOM);
+			mycellium.setIngredient('m', Material.RED_MUSHROOM);
+			mycellium.setIngredient('D', Material.DIRT);
+			mycellium.setIngredient('B', Material.BONE); //Can't use bonemeal
+			mycellium.setIngredient('W', Material.WATER_BUCKET);
+			server.addRecipe(mycellium);
+			mycellium.shape("mWm","MDM","BBB");
+			server.addRecipe(mycellium);
+			mycellium.shape("mWM","mDM","BBB");
+			server.addRecipe(mycellium);
+			mycellium.shape("MWm","MDm","BBB");
+			server.addRecipe(mycellium);
+			mycellium.shape("mWM","MDm","BBB");
+			server.addRecipe(mycellium);
+			mycellium.shape("MWm","mDM","BBB");
+			server.addRecipe(mycellium);
+			logger.info("Added recipe: Mycellium");
+			
+			ShapedRecipe podzol = new ShapedRecipe(new ItemStack(Material.DIRT,1,(short)2));
+			podzol.shape("LLL","WGW");
+			podzol.setIngredient('L', Material.LEAVES);
+			podzol.setIngredient('G', Material.GRASS);
+			podzol.setIngredient('W', Material.WATER_BUCKET);
+			server.addRecipe(podzol);
+			logger.info("Added recipe: Podzol");
+			
 		}
 		
 		if(config.getBoolean("Recipe.Sponge")){
@@ -110,13 +146,13 @@ public class RecipeBook {
 
 			//TODO: Mushroom blocks are weird. The above recipies for some reason do not work.
 			//Added test recipe below that does work. Will change in future update
-			ShapedRecipe sponge2 = new ShapedRecipe(new ItemStack(Material.SPONGE));
-			sponge2.shape(" S ","SCS"," S ");
-			sponge2.setIngredient('S',Material.SAND);
-			sponge2.setIngredient('C', Material.CACTUS);
-			server.addRecipe(sponge2);
+		//	ShapedRecipe sponge2 = new ShapedRecipe(new ItemStack(Material.SPONGE));
+		//	sponge2.shape(" S ","SCS"," S ");
+		//	sponge2.setIngredient('S',Material.SAND);
+		//	sponge2.setIngredient('C', Material.CACTUS);
+		//	server.addRecipe(sponge2);
 			
-			logger.info("[TEST] Added recipe: Spongen");
+			logger.info("Sponge recipe no longer available.");
 		}
 	}
 }

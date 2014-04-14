@@ -7,7 +7,7 @@
  * 															*
  * website: https://github.com/abujaki21/minestock			*
  * 															*
- * Version: 3.0												*
+ * Version: 3.1Dev											*
  * 															*
  * This software is presented AS IS and without warranty	*
  * of any kind. I will not be held responsible for			*
